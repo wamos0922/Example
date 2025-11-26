@@ -17,7 +17,17 @@
 
 
 # 3. SHARPNESS (Detail/Edge Control)
-
+def adjust_sharpness(img: Image.Image, factor: float) -> Image.Image:
+    """
+    Adjusts the image sharpness.
+    
+    Factor 1.0 = original, > 1.0 = sharper, < 1.0 = blurrier.
+    """
+    if not isinstance(img, Image.Image):
+        raise TypeError("Input must be a PIL Image object.")
+        
+    enhancer = ImageEnhance.Sharpness(img)
+    return enhancer.enhance(factor)
 
 
 
